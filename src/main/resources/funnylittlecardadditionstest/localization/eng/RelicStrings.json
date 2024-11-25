@@ -1,0 +1,17 @@
+{
+  "${modID}:RelicID": {
+    "NAME": "Good Relic",
+    "FLAVOR": "Flavor text displayed in detailed relic view.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. [E] is an energy icon."
+    ]
+  },
+  "${modID}:OrnamentalDagger": {
+    "NAME": "Ornamental Dagger",
+    "FLAVOR": "The dagger strikes even when you just defend.",
+    "DESCRIPTIONS": [
+      "Every time you play #b3 cards that give you #yBlock, the dagger strikes a random enemy for #b",
+      " damage"
+    ]
+  }
+}

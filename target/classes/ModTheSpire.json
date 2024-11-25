@@ -1,0 +1,16 @@
+{
+  "modid": "funnylittlecardadditionstothegame",
+  "name": "The Artificer",
+  "author_list": [
+    "Abcras & Friend (whose name is bad for \'official\' things"
+  ],
+  "description": "This mod aims to add events, cards, and relics.\n\n Eventually a character to tie it all together.",
+  "version": "0.0.2",
+  "sts_version": "12-18-2022",
+  "mts_version": "3.30.0",
+  "dependencies": [
+    "basemod",
+    "stslib"
+  ],
+  "update_json": ""
+}

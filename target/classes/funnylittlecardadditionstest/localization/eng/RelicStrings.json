@@ -1,0 +1,25 @@
+{
+  "funnylittlecardadditionstothegame:RelicID": {
+    "NAME": "Good Relic",
+    "FLAVOR": "Flavor text displayed in detailed relic view.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. [E] is an energy icon."
+    ]
+  },
+  "funnylittlecardadditionstothegame:OrnamentalDagger": {
+    "NAME": "Ornamental Dagger",
+    "FLAVOR": "The dagger strikes even when you just defend.",
+    "DESCRIPTIONS": [
+      "Every time you play #b3 cards that give you #yBlock, the dagger strikes a random enemy for #b",
+      " damage"
+    ]
+  },
+  "funnylittlecardadditionstothegame:UnstableDevice": {
+    "NAME": "Unstable Device",
+    "FLAVOR": "A device that works until you disturb it too much",
+    "DESCRIPTIONS": [
+      "At the start of your turn gain #b1 #yStrength and #b1 #yDexterity, ",
+      "the first time you play an attack lose the #yStrength gain, the same happens for a skill and #yDexterity."
+    ]
+  }
+}
