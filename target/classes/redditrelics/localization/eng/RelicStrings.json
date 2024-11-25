@@ -1,0 +1,17 @@
+{
+  "redditrelics:RelicID": {
+    "NAME": "Good Relic",
+    "FLAVOR": "Flavor text displayed in detailed relic view.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of your turn. [E] is an energy icon."
+    ]
+  },
+  "redditrelics:PencilAndCassette": {
+    "NAME": "Pencil and Cassette",
+    "FLAVOR": "Please, rewind before returning the tape.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of each turn.",
+      " At the end of your turn, shuffle your discard pile into your draw pile."
+    ]
+  }
+}

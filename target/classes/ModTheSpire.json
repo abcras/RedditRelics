@@ -1,16 +1,17 @@
 {
-  "modid": "funnylittlecardadditionstothegame",
-  "name": "The Artificer",
+  "modid": "redditrelics",
+  "name": "Reddit Relics",
   "author_list": [
-    "Abcras & Friend (whose name is bad for \'official\' things"
+    "Abcras & Reddit"
   ],
-  "description": "This mod aims to add events, cards, and relics.\n\n Eventually a character to tie it all together.",
-  "version": "0.0.2",
+  "description": "This mod aims to create relics from the fine folk on  r/SlayTheSpire\n\n Hopefully people will find this fun and interesting.",
+  "version": "0.0.1",
   "sts_version": "12-18-2022",
   "mts_version": "3.30.0",
   "dependencies": [
     "basemod",
     "stslib"
   ],
-  "update_json": ""
+  "update_json": "",
+  "credits": "u/Kinderius for Pencil and Cassette"
 }

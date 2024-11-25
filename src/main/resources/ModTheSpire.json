@@ -12,5 +12,6 @@
     "basemod",
     "stslib"
   ],
-  "update_json": ""
+  "update_json": "",
+  "credits": "u/Kinderius for Pencil and Cassette"
 }
