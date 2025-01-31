@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.relics.BottledFlame;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import redditrelics.actions.*;
 import redditrelics.cards.PaperclipField;
+import redditrelics.config.ConfigPanel;
 
 import java.lang.reflect.Type;
 import java.util.function.Predicate;
@@ -62,8 +63,11 @@ public class Paperclip extends BaseRelic implements CustomBottleRelic, CustomSav
     public void onUnequip() {
         if (this.card != null) {
             AbstractCard cardInDeck = AbstractDungeon.player.masterDeck.getSpecificCard(this.card);
-            if (cardInDeck != null) {
-                cardInDeck.inBottleFlame = false;
+            AbstractCard cardInDeck2 = AbstractDungeon.player.masterDeck.getSpecificCard(this.card2);
+            if (cardInDeck != null && cardInDeck2 != null) {
+                //cardInDeck.inBottleFlame = false;
+                PaperclipField.inPaperClip.set(card, false);
+                PaperclipField.inPaperClip.set(card2, false);
             }
         }
 
@@ -113,6 +117,10 @@ public class Paperclip extends BaseRelic implements CustomBottleRelic, CustomSav
 
     @Override
     public boolean canSpawn() {
+        if(!ConfigPanel.enablePaperclip)
+        {
+            return false;
+        }
         int i = 0;
         for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
             if (c.rarity != AbstractCard.CardRarity.BASIC) {

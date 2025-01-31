@@ -5,13 +5,13 @@
     "Abcras & Reddit"
   ],
   "description": "This mod aims to create relics from the fine folk on  r/SlayTheSpire\n\n Hopefully people will find this fun and interesting.",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "sts_version": "12-18-2022",
   "mts_version": "3.30.0",
   "dependencies": [
     "basemod",
     "stslib"
   ],
-  "update_json": "",
-  "credits": "u/Kinderius for Pencil and Cassette"
+  "update_json": "${project.status}",
+  "credits": "u/Kinderius for Pencil and Cassette \nu/RadagastTheRectangle for Paperclip"
 }

@@ -7,6 +7,7 @@ import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import redditrelics.config.ConfigPanel;
 import redditrelics.relics.BaseRelic;
 import redditrelics.util.GeneralUtils;
 import redditrelics.util.KeywordInfo;
@@ -63,6 +64,10 @@ public class RedditRelicsMod implements
     3. Create the functionality for the relic
     6. Create the art for the relic
     6.1. Make the large and small copies of the art
+    6.2 make sure to follow the naming convention and folder placements
+    7 create the boolean in the ConfigPanel
+    7.1 update the UIstrings.json file to give a string in the dict for that part
+    7.2 then change the override canSpawn method to not spawn if the boolean is false
      */
 
 
@@ -86,13 +91,15 @@ public class RedditRelicsMod implements
     @Override
     public void receivePostInitialize() {
         //This loads the image used as an icon in the in-game mods menu.
-        Texture badgeTexture = TextureLoader.getTexture(imagePath("badge.png"));
+        Texture badgeTexture = TextureLoader.getTexture(imagePath("redditRelicsBadge.png"));
         //Set up the mod information displayed in the in-game mods menu.
         //The information used is taken from your pom.xml file.
 
         //If you want to set up a config panel, that will be done here.
         //The Mod Badges page has a basic example of this, but setting up config is overall a bit complex.
-        BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+        BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, new ConfigPanel());
+
+
     }
 
     /*----------Localization----------*/

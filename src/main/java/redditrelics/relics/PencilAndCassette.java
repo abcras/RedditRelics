@@ -3,7 +3,9 @@ package redditrelics.relics;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.common.ShuffleAction;
 import com.megacrit.cardcrawl.actions.defect.ShuffleAllAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import redditrelics.config.ConfigPanel;
 
 import static redditrelics.RedditRelicsMod.makeID;
 
@@ -18,7 +20,10 @@ public class PencilAndCassette extends BaseRelic {
     public PencilAndCassette() {
         super(ID, NAME, RARITY, SOUND);
     }
-
+    @Override
+    public boolean canSpawn() {
+        return ConfigPanel.enablePAC;
+    }
 
     @Override
     public void onEquip() {

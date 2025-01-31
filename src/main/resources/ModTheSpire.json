@@ -12,6 +12,6 @@
     "basemod",
     "stslib"
   ],
-  "update_json": "",
-  "credits": "u/Kinderius for Pencil and Cassette"
+  "update_json": "${project.status}",
+  "credits": "u/Kinderius for Pencil and Cassette \nu/RadagastTheRectangle for Paperclip"
 }
