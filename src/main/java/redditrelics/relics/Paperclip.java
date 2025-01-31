@@ -1,5 +1,7 @@
 package redditrelics.relics;
 
+import basemod.abstracts.CustomBottleRelic;
+import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.FetchAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.ShuffleAllAction;
@@ -14,10 +16,12 @@ import com.megacrit.cardcrawl.relics.BottledFlame;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import redditrelics.actions.*;
 
+import java.lang.reflect.Type;
+import java.util.function.Predicate;
+
 import static redditrelics.RedditRelicsMod.makeID;
 
-
-public class Paperclip extends BaseRelic {
+public class Paperclip extends BaseRelic implements CustomSavable<Pair<Integer,Integer>> {
 
     private boolean cardSelected = true;
     public AbstractCard card = null;
@@ -115,65 +119,15 @@ public class Paperclip extends BaseRelic {
     @Override
     public void onCardDraw(AbstractCard c) {
 
-        /*AbstractCard cardToDraw = c == card ? this.card2 : c == card2 ? this.card : null;
+        AbstractCard cardToDraw = c.uuid == card.uuid ? this.card2 : c.uuid == card2.uuid ? this.card : null;
 
         if(cardToDraw != null && !hasBeenUsed) {
             this.hasBeenUsed = true;
             this.flash();
             this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-
+            this.addToBot(new FetchCardFromDrawPileAction(cardToDraw));
             this.stopPulse();
             this.grayscale = true;
-
-            if (AbstractDungeon.player.hand.size() == 10) {
-                AbstractDungeon.player.drawPile.moveToDiscardPile(c);
-                AbstractDungeon.player.createHandIsFullDialog();
-            } else {
-                AbstractDungeon.player.drawPile.moveToHand(cardToDraw, AbstractDungeon.player.drawPile);
-            }
-        }*/
-        if (this.card == c && !this.hasBeenUsed) {
-
-            this.hasBeenUsed = true;
-            this.flash();
-            /*this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToTop(new MakeTempCardInHandAction(this.card2.makeSameInstanceOf(), 1));*/
-            /*this.addToTop(new ExhaustSpecificCardAction(this.card2, AbstractDungeon.player.hand));
-            this.addToTop(new ExhaustSpecificCardAction(this.card2, AbstractDungeon.player.drawPile));
-            this.addToTop(new ExhaustSpecificCardAction(this.card2, AbstractDungeon.player.discardPile));*/
-
-
-            this.addToBot(new FetchCardFromDrawPileAction(card2));
-            this.grayscale = true;
-
-            /*if (AbstractDungeon.player.hand.size() == 10) {
-                AbstractDungeon.player.drawPile.moveToDiscardPile(c);
-                AbstractDungeon.player.createHandIsFullDialog();
-            } else {
-                AbstractDungeon.player.drawPile.moveToHand(card2, AbstractDungeon.player.drawPile);
-            }*/
-        }
-        if (this.card2 != c && !this.hasBeenUsed) {
-            this.hasBeenUsed = true;
-            this.flash();
-            /*this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-            this.addToTop(new MakeTempCardInHandAction(this.card.makeSameInstanceOf(), 1));*/
-            /*this.addToTop(new ExhaustSpecificCardAction(this.card, AbstractDungeon.player.hand));
-            this.addToTop(new ExhaustSpecificCardAction(this.card, AbstractDungeon.player.drawPile));
-            this.addToTop(new ExhaustSpecificCardAction(this.card, AbstractDungeon.player.discardPile));*/
-
-            this.addToBot(new FetchCardFromDrawPileAction(card));
-            this.grayscale = true;
-
-
-            /*
-            //this.addToTop(new );
-            if (AbstractDungeon.player.hand.size() == 10) {
-                AbstractDungeon.player.drawPile.moveToDiscardPile(c);
-                AbstractDungeon.player.createHandIsFullDialog();
-            } else {
-                AbstractDungeon.player.drawPile.moveToHand(card, AbstractDungeon.player.drawPile);
-            }*/
         }
     }
 
@@ -201,5 +155,37 @@ public class Paperclip extends BaseRelic {
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[2];
+    }
+
+    @Override
+    public Pair<Integer,Integer> onSave() {
+        return new Pair<>(AbstractDungeon.player.masterDeck.group.indexOf(card), AbstractDungeon.player.masterDeck.group.indexOf(card2));
+    }
+
+    @Override
+    public Type savedType() {
+        return CustomSavable.super.savedType();
+    }
+
+    @Override
+    public void onLoad(Pair<Integer,Integer> flo) {
+
+        if (flo == null) {
+            return;
+        }
+        if (flo.getFirst() >= 0 && flo.getFirst() < AbstractDungeon.player.masterDeck.group.size()) {
+            card = AbstractDungeon.player.masterDeck.group.get(flo.getFirst());
+            if (card != null) {
+                //BottleRainField.inBottleRain.set(card, true);
+                if (flo.getSecond() >= 0 && flo.getSecond() < AbstractDungeon.player.masterDeck.group.size()) {
+                    card2 = AbstractDungeon.player.masterDeck.group.get(flo.getSecond());
+                    if (card2 != null) {
+                        //BottleRainField.inBottleRain.set(card, true);
+                        setDescriptionAfterLoading();
+                    }
+                }
+            }
+        }
+
     }
 }

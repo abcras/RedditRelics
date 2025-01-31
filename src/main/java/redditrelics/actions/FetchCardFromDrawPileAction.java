@@ -40,18 +40,23 @@ public class FetchCardFromDrawPileAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startDuration) {
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (c == this.card) {
-
-                    if (AbstractDungeon.player.hand.size() == 10) {
-                        AbstractDungeon.player.drawPile.moveToDiscardPile(c);
-                        AbstractDungeon.player.createHandIsFullDialog();
+            AbstractCard theRealCard = this.card;
+            for (AbstractCard c : this.player.drawPile.group) {
+                if (c.uuid == this.card.uuid) {
+                    theRealCard = c;
+                    if (this.player.hand.size() == 10) {
+                        this.player.drawPile.moveToDiscardPile(c);
+                        this.player.createHandIsFullDialog();
+                        return;
                     } else {
-                        AbstractDungeon.player.drawPile.moveToHand(c, AbstractDungeon.player.drawPile);
-                        AbstractDungeon.player.hand.refreshHandLayout();
+                        this.player.drawPile.moveToHand(c, this.player.drawPile);
+                        return;
+                        //AbstractDungeon.player.hand.refreshHandLayout();
                     }
                 }
             }
+            //if()
+
 
             this.isDone = true;
         }
