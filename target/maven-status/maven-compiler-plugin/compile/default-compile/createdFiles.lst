@@ -12,9 +12,11 @@ redditrelics\relics\Pair.class
 redditrelics\actions\FetchCardFromDrawPileAction.class
 redditrelics\relics\PencilAndCassette.class
 redditrelics\cards\BaseCard$LocalVarInfo.class
+redditrelics\cards\PaperclipField$MakeStatEquivalentCopy.class
 redditrelics\util\TriFunction.class
 redditrelics\relics\BaseRelic.class
 redditrelics\cards\BaseCard$VariableType.class
 redditrelics\relics\BaseRelic$1.class
 redditrelics\util\TextureLoader.class
 redditrelics\util\GeneralUtils.class
+redditrelics\cards\PaperclipField.class

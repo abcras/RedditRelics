@@ -15,13 +15,14 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BottledFlame;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import redditrelics.actions.*;
+import redditrelics.cards.PaperclipField;
 
 import java.lang.reflect.Type;
 import java.util.function.Predicate;
 
 import static redditrelics.RedditRelicsMod.makeID;
 
-public class Paperclip extends BaseRelic implements CustomSavable<Pair<Integer,Integer>> {
+public class Paperclip extends BaseRelic implements CustomBottleRelic, CustomSavable<Pair<Integer,Integer>> {
 
     private boolean cardSelected = true;
     public AbstractCard card = null;
@@ -50,7 +51,9 @@ public class Paperclip extends BaseRelic implements CustomSavable<Pair<Integer,I
             }
 
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
-            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.masterDeck.getPurgeableCards(), 2, this.DESCRIPTIONS[1] + this.name + LocalizedStrings.PERIOD, false, false, false, false);
+            AbstractDungeon.gridSelectScreen.open(AbstractDungeon.player.masterDeck.getPurgeableCards(),
+                    2, this.DESCRIPTIONS[1] + this.name + LocalizedStrings.PERIOD,
+                    false, false, false, false);
         }
 
     }
@@ -74,8 +77,10 @@ public class Paperclip extends BaseRelic implements CustomSavable<Pair<Integer,I
             this.card = (AbstractCard) AbstractDungeon.gridSelectScreen.selectedCards.get(0);
 
             this.card2 = (AbstractCard) AbstractDungeon.gridSelectScreen.selectedCards.get(1);
-            /*this.card.inBottleFlame = true;
-            this.card2.inBottleFlame = true;*/
+
+            PaperclipField.inPaperClip.set(card, true);
+            PaperclipField.inPaperClip.set(card2, true);
+
             AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             setDescriptionAfterLoading();
@@ -90,31 +95,6 @@ public class Paperclip extends BaseRelic implements CustomSavable<Pair<Integer,I
         this.tips.add(new PowerTip(this.name, this.description));
         this.initializeTips();
     }
-
-    /*@Override
-    public void atBattleStart() {
-        this.flash();
-        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-    }*/
-
-    @Override
-    public void atBattleStartPreDraw() {
-        for (AbstractCard c : AbstractDungeon.player.drawPile.group)
-        {
-            if(c == card2)
-            {
-                AbstractDungeon.player.drawPile.group.remove(c);
-                return;
-            }
-        }
-        super.atBattleStartPreDraw();
-    }
-
-    /*@Override
-    public void onEnterRoom(AbstractRoom room) {
-        room.combatEvent
-        super.onEnterRoom(room);
-    }*/
 
     @Override
     public void onCardDraw(AbstractCard c) {
@@ -176,10 +156,11 @@ public class Paperclip extends BaseRelic implements CustomSavable<Pair<Integer,I
         if (flo.getFirst() >= 0 && flo.getFirst() < AbstractDungeon.player.masterDeck.group.size()) {
             card = AbstractDungeon.player.masterDeck.group.get(flo.getFirst());
             if (card != null) {
-                //BottleRainField.inBottleRain.set(card, true);
+                PaperclipField.inPaperClip.set(card, true);
                 if (flo.getSecond() >= 0 && flo.getSecond() < AbstractDungeon.player.masterDeck.group.size()) {
                     card2 = AbstractDungeon.player.masterDeck.group.get(flo.getSecond());
                     if (card2 != null) {
+                        PaperclipField.inPaperClip.set(card2, true);
                         //BottleRainField.inBottleRain.set(card, true);
                         setDescriptionAfterLoading();
                     }
@@ -187,5 +168,10 @@ public class Paperclip extends BaseRelic implements CustomSavable<Pair<Integer,I
             }
         }
 
+    }
+
+    @Override
+    public Predicate<AbstractCard> isOnCard() {
+        return PaperclipField.inPaperClip::get;
     }
 }
