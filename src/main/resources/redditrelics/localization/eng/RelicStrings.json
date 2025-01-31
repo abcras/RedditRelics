@@ -25,5 +25,13 @@
       " or draw ",
       " you draw the other as well"
     ]
+  },
+  "${modID}:CleansingRitual": {
+    "NAME": "Cleansing Ritual",
+    "FLAVOR": "Clean yourself of thy cards...",
+    "DESCRIPTIONS": [
+      "Powers exhaust a copy of themselves",
+      " when played"
+    ]
   }
 }

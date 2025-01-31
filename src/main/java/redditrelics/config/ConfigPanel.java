@@ -8,6 +8,8 @@ public class ConfigPanel extends EasyConfigPanel {
     public static boolean enablePAC = true;
     public static boolean enablePaperclip = true;
 
+    public static boolean enableCleansing = true;
+
     public ConfigPanel() {
         super(RedditRelicsMod.modID, RedditRelicsMod.makeID("ConfigPanel"));
     }

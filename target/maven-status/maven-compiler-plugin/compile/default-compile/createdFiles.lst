@@ -5,7 +5,9 @@ redditrelics\util\KeywordInfo.class
 redditrelics\relics\Paperclip.class
 redditrelics\relics\BaseRelic.class
 redditrelics\util\TextureLoader.class
+redditrelics\relics\CleansingRitual.class
 redditrelics\util\GeneralUtils.class
+redditrelics\actions\MakeTempCardInExhaustPileAction.class
 redditrelics\cards\BaseCard$1.class
 redditrelics\RedditRelicsMod.class
 redditrelics\cards\BaseCard$QuickDynamicVariable.class

@@ -15,8 +15,9 @@
   },
   "${modID}:ConfigPanel": {
     "TEXT_DICT": {
-      "enablePAC": "Can the Pencil and Cassette relic spawn",
-      "enablePaperclip": "Can the Paperclip relic spawn"
+      "enablePAC": "Can the Pencil and Cassette relic spawn?",
+      "enablePaperclip": "Can the Paperclip relic spawn?",
+      "enableCleansing": "Can the Cleansing Ritual relic spawn?"
     }
   }
 }
