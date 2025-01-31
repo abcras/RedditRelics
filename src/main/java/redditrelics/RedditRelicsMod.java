@@ -55,6 +55,17 @@ public class RedditRelicsMod implements
      */
 
 
+    /*
+    Small guide to making relics:
+    1. Create a new class by its name
+    1a. alternatively copy an old relic and rename it and remove all old content
+    2. Modify the RelicStrings Section to have the new relic name with description
+    3. Create the functionality for the relic
+    6. Create the art for the relic
+    6.1. Make the large and small copies of the art
+     */
+
+
 
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.

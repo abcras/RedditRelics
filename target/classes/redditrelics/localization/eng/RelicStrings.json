@@ -13,5 +13,17 @@
       "Gain [E] at the start of each turn.",
       " At the end of your turn, shuffle your discard pile into your draw pile."
     ]
+  },
+  "redditrelics:Paperclip": {
+    "NAME": "Paperclip",
+    "FLAVOR": "A strange spiral of metal.",
+    "DESCRIPTIONS": [
+      "Upon pickup, chose 2 cards",
+      "The first time one is drawn,",
+      "the other will be drawn as well.",
+      "When you draw ",
+      " or draw ",
+      " you draw the other as well"
+    ]
   }
 }

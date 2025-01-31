@@ -7,6 +7,8 @@ redditrelics\util\CardStats.class
 redditrelics\potions\BasePotion.class
 redditrelics\util\KeywordInfo.class
 redditrelics\cards\BaseCard.class
+redditrelics\relics\Paperclip.class
+redditrelics\actions\FetchCardFromDrawPileAction.class
 redditrelics\relics\PencilAndCassette.class
 redditrelics\cards\BaseCard$LocalVarInfo.class
 redditrelics\util\TriFunction.class
