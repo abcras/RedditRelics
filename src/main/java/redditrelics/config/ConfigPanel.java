@@ -10,6 +10,8 @@ public class ConfigPanel extends EasyConfigPanel {
 
     public static boolean enableCleansing = true;
 
+    public static boolean enableClawMold = true;
+
     public ConfigPanel() {
         super(RedditRelicsMod.modID, RedditRelicsMod.makeID("ConfigPanel"));
     }

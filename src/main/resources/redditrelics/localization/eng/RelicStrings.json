@@ -33,5 +33,14 @@
       "Powers exhaust a copy of themselves",
       " when played"
     ]
+  },
+  "${modID}:ClawMold": {
+    "NAME": "Claw Mold",
+    "FLAVOR": "It goes in the claw mold!",
+    "DESCRIPTIONS": [
+      "When you play a non-Claw attack card",
+      " increase the damage of ALL Claw cards by #b",
+      " this combat"
+    ]
   }
 }
