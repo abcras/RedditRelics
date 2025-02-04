@@ -1,13 +1,14 @@
-﻿package redditrelics.relics;
+package redditrelics.relics;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.defect.GashAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.blue.Claw;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.FocusPower;
-import redditrelics.actions.MakeTempCardInExhaustPileAction;
+import com.megacrit.cardcrawl.helpers.CardHelper;
+import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import redditrelics.config.ConfigPanel;
 
 import static redditrelics.RedditRelicsMod.makeID;
@@ -19,16 +20,25 @@ public class ClawMold extends BaseRelic {
     private static final RelicTier RARITY = RelicTier.RARE; //The relic's rarity.
     private static final LandingSound SOUND = LandingSound.HEAVY; //The sound played when the relic is clicked.
 
-    private static final int magicNumber = 1;
+    private static final AbstractCard ClawCardRef = new Claw();
+    private static int magicNumber = 1;
 
     public ClawMold() {
         super(ID, NAME, AbstractCard.CardColor.BLUE, RARITY, SOUND);
+        magicNumber = ConfigPanel.setClawMoldMagicNumber;
+        setDescriptionAfterLoading();
     }
     @Override
     public boolean canSpawn() {
-        return ConfigPanel.enableClawMold;
+        return ConfigPanel.enableClawMold && CardHelper.hasCardWithID(Claw.ID);
     }
 
+    public void setDescriptionAfterLoading() {
+        this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + magicNumber + DESCRIPTIONS[2];
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+        this.initializeTips();
+    }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
@@ -39,7 +49,7 @@ public class ClawMold extends BaseRelic {
             flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             //increment claw damage by 1.
-            this.addToBot(new GashAction(card, this.magicNumber));
+            this.addToBot(new GashAction(ClawCardRef, this.magicNumber));
 
             //this.addToBot(new MakeTempCardInExhaustPileAction(card));
         }

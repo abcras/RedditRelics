@@ -20,6 +20,7 @@ redditrelics\cards\BaseCard$LocalVarInfo.class
 redditrelics\cards\PaperclipField$MakeStatEquivalentCopy.class
 redditrelics\util\TriFunction.class
 redditrelics\cards\BaseCard$VariableType.class
+redditrelics\relics\ClawMold.class
 redditrelics\config\ConfigPanel.class
 redditrelics\relics\BaseRelic$1.class
 redditrelics\cards\PaperclipField.class
