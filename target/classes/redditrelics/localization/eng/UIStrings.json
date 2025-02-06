@@ -19,7 +19,9 @@
       "enablePaperclip": "Can the Paperclip relic spawn?",
       "enableCleansing": "Can the Cleansing Ritual relic spawn?",
       "enableClawMold": "Can the Claw Mold (defect) relic spawn?",
-      "setClawMoldMagicNumber": "What number should Claw Mold increase ALL claw cards by?"
+      "setClawMoldMagicNumber": "What number should Claw Mold increase ALL claw cards by?",
+      "enableMadDice": "Can the Mad God's Dice relic spawn?",
+      "enableNeowsScripture": "Can the Neow's Scripture relic spawn?"
     }
   }
 }

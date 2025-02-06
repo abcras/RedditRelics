@@ -1,9 +1,11 @@
 redditrelics\util\TextureLoader$1.class
 redditrelics\powers\BasePower.class
+redditrelics\relics\NeowsScripture.class
 redditrelics\potions\BasePotion.class
 redditrelics\util\KeywordInfo.class
 redditrelics\relics\Paperclip.class
 redditrelics\relics\BaseRelic.class
+redditrelics\relics\MadGodsDice.class
 redditrelics\util\TextureLoader.class
 redditrelics\relics\CleansingRitual.class
 redditrelics\util\GeneralUtils.class

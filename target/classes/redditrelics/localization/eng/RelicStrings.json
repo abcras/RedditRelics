@@ -42,5 +42,22 @@
       " increase the damage of ALL Claw cards by #b",
       " this combat"
     ]
+  },
+  "redditrelics:MadGodsDice": {
+    "NAME": "Mad God's Dice",
+    "FLAVOR": "Sometimes rolls a 7....",
+    "DESCRIPTIONS": [
+      "If you start your turn with a #ydebuff, gain #b",
+      " [E] . Start each combat with #b",
+      " #yweak and #yfrail."
+    ]
+  },
+  "redditrelics:NeowsScripture": {
+    "NAME": "Neow's Scripture",
+    "FLAVOR": "The pages rustle but no wind is present",
+    "DESCRIPTIONS": [
+      "Choose to obtain one you don't own of either Enchiridion, Nilry's Codex or Necronomicon.",
+      "Choose ..."
+    ]
   }
 }

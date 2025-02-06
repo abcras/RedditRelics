@@ -13,6 +13,10 @@ public class ConfigPanel extends EasyConfigPanel {
     public static boolean enableClawMold = true;
     public static int setClawMoldMagicNumber = 1;
 
+    public static boolean enableMadDice = true;
+
+    public static boolean enableNeowsScripture = true;
+
     public ConfigPanel() {
 
         super(RedditRelicsMod.modID, RedditRelicsMod.makeID("ConfigPanel"));

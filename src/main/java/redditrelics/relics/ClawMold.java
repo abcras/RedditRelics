@@ -47,7 +47,7 @@ public class ClawMold extends BaseRelic {
 
         if(card.type == AbstractCard.CardType.ATTACK && !card.name.contains("Claw") ){
             flash();
-            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            //this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             //increment claw damage by 1.
             this.addToBot(new GashAction(ClawCardRef, this.magicNumber));
 
