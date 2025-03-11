@@ -59,5 +59,13 @@
       "Choose to obtain one you don't own of either Enchiridion, Nilry's Codex or Necronomicon.",
       "Choose ..."
     ]
+  },
+  "${modID}:Tuner": {
+    "NAME": "Tuner",
+    "FLAVOR": "Now my Xotic plays exactly how I want it",
+    "DESCRIPTIONS": [
+      "When you play an X cost card chose the energy you wan to spend from x-9",
+      "Choose ..."
+    ]
   }
 }
