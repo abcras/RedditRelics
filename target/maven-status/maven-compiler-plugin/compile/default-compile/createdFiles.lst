@@ -3,9 +3,13 @@ redditrelics\powers\BasePower.class
 redditrelics\relics\NeowsScripture.class
 redditrelics\potions\BasePotion.class
 redditrelics\util\KeywordInfo.class
+redditrelics\relics\Tuner.class
+redditrelics\cards\NoCostTooGreat.class
 redditrelics\relics\Paperclip.class
+redditrelics\powers\ExhaustingDefence.class
 redditrelics\relics\BaseRelic.class
 redditrelics\relics\MadGodsDice.class
+redditrelics\actions\ExhaustRandomCardInCombatAction.class
 redditrelics\util\TextureLoader.class
 redditrelics\relics\CleansingRitual.class
 redditrelics\util\GeneralUtils.class

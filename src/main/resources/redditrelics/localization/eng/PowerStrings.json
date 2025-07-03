@@ -4,5 +4,11 @@
     "DESCRIPTIONS": [
       "You are Very Cool and Strong."
     ]
+  },
+  "${modID}:ExhaustingDefence": {
+    "NAME": "Exhausting Defence",
+    "DESCRIPTIONS": [
+      "Exhaust a random card in combat instead of losing HP."
+    ]
   }
 }

@@ -8,5 +8,10 @@
       "If you need to use it for stuff.",
       "Blizzard is a good example for this."
     ]
+  },
+  "redditrelics:NoCostTooGreat": {
+    "NAME": "No Cost Too Great",
+    "DESCRIPTION": "Ethereal. NL When you would lose HP Exhaust a random card in combat.",
+    "UPGRADE_DESCRIPTION": "When you would lose HP Exhaust a random card in combat."
   }
 }

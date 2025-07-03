@@ -2,11 +2,9 @@ package redditrelics;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import redditrelics.cards.BaseCard;
 import redditrelics.config.ConfigPanel;
 import redditrelics.relics.BaseRelic;
 import redditrelics.util.GeneralUtils;
@@ -34,6 +32,7 @@ import java.util.*;
 
 @SpireInitializer
 public class RedditRelicsMod implements
+        EditCardsSubscriber,
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
@@ -267,5 +266,13 @@ public class RedditRelicsMod implements
                     if (info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receiveEditCards() {
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BaseCard.class) //In the same package as this class
+                .setDefaultSeen(true) //And marks them as seen in the compendium
+                .cards(); //Adds the cards
     }
 }
